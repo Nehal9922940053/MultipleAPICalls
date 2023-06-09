@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfF33IBPmpAeNRIAkuR4VBit3yjU-Fi2A&callback=initMap"></script>    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Multiple API Calls</title>
+</head>
+<body>
+    <div class="button-box">
+        <button class="btn1" id="btn1">
+            Button-1
+        </button>
+        <button class="btn2" id="btn2">
+            Button-2
+        </button>
+        <button class="btn3" id="btn3">
+            Button-3
+        </button>
+        <button class="btn4" id="btn4">
+            Button-4
+        </button>
+        <button class="btn5" id="btn5">
+            Button-5
+        </button>
+    </div>
+    <div class="wrapper" id="wrapper">
+    <div class="container1">
+        <button class="btnCancel1" id="btnClose">
+            <i class="fa fa-times-circle close-icon"></i>
+        </button>
+        <div class="search-container">
+            <input type="text" placeholder="Enter a City name" id="city" value="Vasco Da Gama"/>
+            <button id="search-btn">Search</button>
+        </div>
+        <div id="result"></div>
+    </div>
+</div>
+
+<!-- Map JavaScript API -->
+<div class="wrapper2" id="wrapper2">
+    <button class="btnCancel" id="btnClose">
+        <i class="fa fa-times-circle close-icon2"></i>
+    </button>
+<div id="map">
+</div>
+</div>
+
+<!-- covid-19 API -->
+<div class="wrapper3" id="wrapper3">
+    <button class="btnCancel" id="btnClose">
+        <i class="fa fa-times-circle close-icon3"></i>
+    </button>
+    <h1 class="title">COVID-19 Cases in <span id="country"></span><img src="" id="flag"></h1>
+<div class="container3" id="container3">
+    <div class="subcontainer1">
+        <h1>Active Cases</h1>
+        <span id="active"></span>
+    </div>
+    <div class="subcontainer2">
+        <h1>Critical Cases</h1>
+        <span id="critical"></span>
+    </div>
+    <div class="subcontainer3">
+        <h1>Recovered Cases</h1>
+        <span id="recovered"></span>
+    </div>
+    <div class="subcontainer4">
+        <h1>Total Cases</h1>
+        <span id="cases"></span>
+    </div>
+    <div class="subcontainer5">
+        <h1>Total Deaths</h1>
+        <span id="deaths"></span>
+    </div>
+    <div class="subcontainer6">
+        <h1>Total Tests</h1>
+        <span id="tests"></span>
+    </div>
+</div>
+</div>
+
+
+<!-- Currency converter API -->
+
+<div class="wrapper4" id="wrapper4">
+    <button class="btnCancel" id="btnClose">
+        <i class="fa fa-times-circle close-icon4"></i>
+    </button>
+    <h1>Exchange Rate Calculator</h1>
+    <h3>Choose The Currency Amount To Get The Exchange Rates</h3>
+    <div class="container4">
+        <div class="currency">
+            <div class="currency-one">
+                <select id="currency-one">
+                    <option value="AED">AED</option>
+          <option value="ARS">ARS</option>
+          <option value="AUD">AUD</option>
+          <option value="BGN">BGN</option>
+          <option value="BRL">BRL</option>
+          <option value="BSD">BSD</option>
+          <option value="CAD">CAD</option>
+          <option value="CHF">CHF</option>
+          <option value="CLP">CLP</option>
+          <option value="CNY">CNY</option>
+          <option value="COP">COP</option>
+          <option value="CZK">CZK</option>
+          <option value="DKK">DKK</option>
+          <option value="DOP">DOP</option>
+          <option value="EGP">EGP</option>
+          <option value="EUR">EUR</option>
+          <option value="FJD">FJD</option>
+          <option value="GBP">GBP</option>
+          <option value="GTQ">GTQ</option>
+          <option value="HKD">HKD</option>
+          <option value="HRK">HRK</option>
+          <option value="HUF">HUF</option>
+          <option value="IDR">IDR</option>
+          <option value="ILS">ILS</option>
+          <option value="INR">INR</option>
+          <option value="ISK">ISK</option>
+          <option value="JPY">JPY</option>
+          <option value="KRW">KRW</option>
+          <option value="KZT">KZT</option>
+          <option value="MXN">MXN</option>
+          <option value="MYR">MYR</option>
+          <option value="NOK">NOK</option>
+          <option value="NZD">NZD</option>
+          <option value="PAB">PAB</option>
+          <option value="PEN">PEN</option>
+          <option value="PHP">PHP</option>
+          <option value="PKR">PKR</option>
+          <option value="PLN">PLN</option>
+          <option value="PYG">PYG</option>
+          <option value="RON">RON</option>
+          <option value="RUB">RUB</option>
+          <option value="SAR">SAR</option>
+          <option value="SEK">SEK</option>
+          <option value="SGD">SGD</option>
+          <option value="THB">THB</option>
+          <option value="TRY">TRY</option>
+          <option value="TWD">TWD</option>
+          <option value="UAH">UAH</option>
+          <option value="USD" selected>USD</option>
+          <option value="UYU">UYU</option>
+          <option value="VND">VND</option>
+          <option value="ZAR">ZAR</option>
+        </select>
+        <input type="number" id="amount-one" placeholder="0" value="1" />
+      </div>        
+
+      <div class="swap-rate-container">
+        <button class="btn" id="swap">Swap</button>
+        <div class="rate" id="rate"></div>  
+      </div>
+
+      <div class="currency-two">
+        <select id="currency-two">
+   <option value="AED">AED</option>
+  <option value="ARS">ARS</option>
+  <option value="AUD">AUD</option>
+  <option value="BGN">BGN</option>
+  <option value="BRL">BRL</option>
+  <option value="BSD">BSD</option>
+  <option value="CAD">CAD</option>
+  <option value="CHF">CHF</option>
+  <option value="CLP">CLP</option>
+  <option value="CNY">CNY</option>
+  <option value="COP">COP</option>
+  <option value="CZK">CZK</option>
+  <option value="DKK">DKK</option>
+  <option value="DOP">DOP</option>
+  <option value="EGP">EGP</option>
+  <option value="EUR">EUR</option>
+  <option value="FJD">FJD</option>
+  <option value="GBP">GBP</option>
+  <option value="GTQ">GTQ</option>
+  <option value="HKD">HKD</option>
+  <option value="HRK">HRK</option>
+  <option value="HUF">HUF</option>
+  <option value="IDR">IDR</option>
+  <option value="ILS">ILS</option>
+  <option value="INR" selected>INR</option>
+  <option value="ISK">ISK</option>
+  <option value="JPY">JPY</option>
+  <option value="KRW">KRW</option>
+  <option value="KZT">KZT</option>
+  <option value="MXN">MXN</option>
+  <option value="MYR">MYR</option>
+  <option value="NOK">NOK</option>
+  <option value="NZD">NZD</option>
+  <option value="PAB">PAB</option>
+  <option value="PEN">PEN</option>
+  <option value="PHP">PHP</option>
+  <option value="PKR">PKR</option>
+  <option value="PLN">PLN</option>
+  <option value="PYG">PYG</option>
+  <option value="RON">RON</option>
+  <option value="RUB">RUB</option>
+  <option value="SAR">SAR</option>
+  <option value="SEK">SEK</option>
+  <option value="SGD">SGD</option>
+  <option value="THB">THB</option>
+  <option value="TRY">TRY</option>
+  <option value="TWD">TWD</option>
+  <option value="UAH">UAH</option>
+  <option value="USD">USD</option>
+  <option value="UYU">UYU</option>
+  <option value="VND">VND</option>
+  <option value="ZAR">ZAR</option>
+</select>
+<input type="number" id="amount-two" />
+</div>        
+      </div>    
+    </div>
+
+</div>
+
+
+<!-- Crypto API  -->
+<div class="wrapper5" id="wrapper5"> 
+    <button class="btnCancel1" id="btnClose">
+        <i class="fa fa-times-circle close-icon5"></i>
+    </button>
+    <h1>Live Crypto Currency Price</h1>
+<div class="container5">
+
+    <div class="coin-price">
+        <div class="logo"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEi32rDKQR2Swi7YfHjDzyZUBGEmxTz77OClnm24SZl7kWuls7fsVCIfAObY_JRJIReQnBWZIPSVfDLSqDvqeu4CCXCoNQIoUGK-OSDUGMtDJFxh9vmU6WGajIgXH4CsR_-sXU0qWbyJTJl7N0BSTB8HcAGSpCJ54G1daZPnU6h2oANo2CTGsbHCoaGJHQ" ></div>
+        <div>
+            <h2>₹<span id="bitcoin"></span></h2>
+            <h2>Bitcoin</h2>
+        </div>
+    </div>
+    <div class="coin-price">
+        <div class="logo"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEhrUFoHC68rLHQYMV41awqGtoeU6qI-CkSVmcYK-KBCrOvL-jzwLOx8pN-5B8aALsHh1Zc9mmDm8LVQSSpdpsw0v6vrJsv4r9_lv0ic5aYbogc3i3h9mG6ZGMc7g9_cGSRh_soaKmXtpMEOxBFIsmiTa_wticu9T07MbqQ42J9NwowHp8tn8OUIBlhjqA" ></div>
+        <div>
+            <h2>₹<span id="litecoin"></span></h2>
+            <h2>Litecoin</h2>
+        </div>
+    </div>
+   
+    <div class="coin-price">
+        <div class="logo"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEgfcodOJm7ZIXw2kiqdo5abN4cUvFYgyqpKt91zHI8710ltPK5Ny_S5X93w9LSDsF5jW61frn3C8a_8w2GXu4bf0clzxuJljoQ8n6az5EI5zQOcl5W2LScP-1-41NQwPW5A3JWT9EwejtOnHsd3q2-llUsJJQ3Z74v_2FOPn0TrI2529NS9_hmFbvModw" ></div>
+        <div>
+            <h2>₹<span id="ethereum"></span></h2>
+            <h2>Ethereum</h2>
+        </div>
+    </div>
+    <div class="coin-price">
+        <div class="logo"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEj9YzGIFUSMpRoWE4IjGl_o2zpdPkvtUS6jzIgZWEWl7ztYyV20oXu80A52v0R_nXpt_qXVBzxnfse2_pfeIbVHwQSR3oLqqAyMqVqnzJpdbSCBHA2b_zlheiLY3Bb0PYCEXQny7q-FnGE01ZtxVFVC8DbLWW-ZC1PC-gaqL7IC7ZfRxFOZufcv8lcY1g" ></div>
+        <div>
+            <h2>₹<span id="dogecoin"></span></h2>
+            <h2>Dogecoin</h2>
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+ <script src="key.js"></script>
+ <script src="index.js"></script>
+
+</body>
+</html>
